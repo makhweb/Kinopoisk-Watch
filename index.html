@@ -117,7 +117,7 @@
 
     <div id="container">
         <div id="yohoho" data-resize="1" data-tv="1" data-bg="#000000"></div>
-        <div id="message">Произошла ошибка</div>
+        <div id="message">Не удалось загрузить плеер</div>
     </div>
     
     <a id="link" href="https://yohoho.cc/" target="_blank">Powered by Yohoho</a>
@@ -130,24 +130,21 @@
             document.getElementById('yohoho').setAttribute('data-kinopoisk', id);
         } else {
             document.getElementById('yohoho').remove();
-            showMessage('ID фильма не указан');
+            setTimeout(() => {
+                document.getElementById('message').innerText = 'ID фильма не указан';
+                document.getElementById('message').style.top = '50%';
+                document.getElementById('message').style.opacity = '1';
+            }, 100);
         }
         
-        // Wait until player is loaded
+        // Show message
         window.onload = () => {
             setTimeout(() => {
-                 showMessage('Не удалось загрузить плеер');
+                document.getElementById('message').style.top = '50%';
+                document.getElementById('message').style.opacity = '1';
             }, 2000);
         }
 
-        // Show error message
-        function showMessage(text) {
-            setTimeout(() => {
-                document.getElementById('message').innerText = text;
-                document.getElementById('message').style.top = '50%';
-                document.getElementById('message').style.opacity = '1';
-            }, 500);
-        }
     </script>
 
     <script src="//yohoho.cc/yo.js"></script>
