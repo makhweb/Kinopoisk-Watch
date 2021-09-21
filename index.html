@@ -64,7 +64,7 @@
 		 */
 		function selectTorrent() {
 			const element = document.createElement('iframe');
-			element.src = `${window.location.pathname}download.html#${title}`;
+			element.src = `${window.location.pathname}download.html#${encodeURI(title)}`;
 
 			players.classList.remove('active');
 			torrents.classList.add('active');
