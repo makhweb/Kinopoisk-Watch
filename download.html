@@ -29,7 +29,7 @@
 
 	<script>
 		const yohoho = document.getElementById('yohoho');
-		const title = window.location.hash.replace(/\D/g, '');
+		const title = window.location.hash.substring(1);
 		yohoho.setAttribute('data-title', decodeURI(title));
 	</script>
 
