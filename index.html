@@ -39,8 +39,9 @@
 		let title = params.get('title');
 
 		// Parse hash for old versions
-		if (window.location.hash !== '') {
-			id = window.location.hash.substring(1);
+		const hash = window.location.hash.replace(/\D/g, '');
+		if (hash !== '') {
+			id = hash;
 			console.error('Вы используете старую версию скрипта! Обновитесь до последней версии! \n https://github.com/Kirlovon/Kinopoisk-Watch')
 		}
 
